@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class HelloController {
@@ -24,7 +25,38 @@ public class HelloController {
     }
 
     @GetMapping("hello-string")
+    @ResponseBody
     public String helloString(@RequestParam(value = "name")String name){
+        return "hello"+name; //"hello name"
+    }
 
+    @GetMapping("hello-api")
+    @ResponseBody
+    public Hello helloAPI(@RequestParam("name")String name,@RequestParam("id")int id){
+        Hello hello = new Hello();
+        hello.setName(name);
+        hello.setId(id);
+        return hello;
+    }
+
+    static class Hello{
+        private String name;
+        private int id;
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
     }
 }
