@@ -8,7 +8,7 @@ class MemberServiceTest {
 
     @Test
     void 회원가입() {
-
+        System.out.println("join");
     }
 
     @Test
