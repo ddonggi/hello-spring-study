@@ -5,14 +5,20 @@ package DevDglee.hellospring.service;
 
 import DevDglee.hellospring.domain.Member;
 import DevDglee.hellospring.repository.MemberRepository;
-import DevDglee.hellospring.repository.MemoryMemberRepository;
 
 import java.util.List;
 import java.util.Optional;
 
 public class MemberService {
 
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+//    private final MemberRepository memberRepository = new MemoryMemberRepository();
+    //외부에서 받아오도록 바꿔주자.
+
+    private final MemberRepository memberRepository;
+
+    public MemberService(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
 
     /**
      * join
