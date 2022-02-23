@@ -5,6 +5,8 @@ package DevDglee.hellospring.service;
 
 import DevDglee.hellospring.domain.Member;
 import DevDglee.hellospring.repository.MemberRepository;
+import DevDglee.hellospring.repository.MemoryMemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,9 +17,9 @@ public class MemberService {
 
 //    private final MemberRepository memberRepository = new MemoryMemberRepository();
     //외부에서 받아오도록 바꿔주자.
-
     private final MemberRepository memberRepository;
 
+    @Autowired //MemberRepository interface 이지만, 스프링은 구현체인 MemoryMemberRepository를 넣어준다.
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }

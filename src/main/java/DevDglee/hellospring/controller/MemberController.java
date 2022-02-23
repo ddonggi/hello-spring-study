@@ -3,6 +3,7 @@ package DevDglee.hellospring.controller;
 import DevDglee.hellospring.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 
 //스프링 빈과 의존관계
 @Controller
@@ -35,4 +36,20 @@ public class MemberController {
     // 그런데 빨간줄이 뜬다.(bean could not be found) 왜? MemberService에 가보면, 어떤 Annotaion이 없는 순수한 java class 이기 때문에
     // 스프링이 알 수 있는 방법이 없다.
     // 어떻게 해야하나? 스프링이 알 수 있도록 @Service 를 넣어주면 된다.
+
+// 스프링 빈을 등록하는 2가지 방법
+    //1. 컴포넌트 스캔과 자동 의존관계 설정
+    //Controller, Repo , Service Anno클릭해보면, @Component 어노테이션이 내부적으로 있다.
+    // 그게 있으면, 스프링이 객체를 생성해서 컨테이너에 등록해놓는다.(컴포넌트 스캔)
+    // 오토와이어드는 연관관계, 연결된 애들을 쓸수있게 해준다. (자동 의존관계 설정)
+
+    //2.자바 코드로 직접 스프링 빈 등록하기
+    //추후
+
+    //아무데나 @Component 를 해도 되나?? 놉-> HelloSpringApplication @SpringBootApplication 을 보면
+    // package 가 있는데, 그 패키지의 하위 에서만 된다. ( 설정을 해주면 되긴 함)
+
+    /* 참고 : 스프링은 스프링 컨테이너에 스프링 빈을 등록할때, 기본적으로 싱글톤으로 등록한다.
+     (유일하게 하나만 등록해서 공유)따라서 같은 스프링 빈이면 모두 같은 인스턴스다.
+     설정으로 싱글톤이 아니게 할 수 있지만, 특별한 경우를 제외하면 대부분 싱글톤을 사용한다.*/
 }
