@@ -26,12 +26,13 @@ class MemberServiceTest {
     MemoryMemberRepository memberRepository;
 
 
-    //실행 전에->
+    //각 테스트를 실행하기 전에 전에->
     @BeforeEach
     public void beforeEach(){
-        memberRepository = new MemoryMemberRepository();
+        memberRepository = new MemoryMemberRepository(); //MemoryMemberRepository 인스턴스화 후 멤버변수에 선언
         memberService = new MemberService(memberRepository);
     }
+    //MemberService 입장에서는 직접 new 하지 않고, memberRepository를 외부에서 넣어준다 : DI(dependency Injection)
 
     @AfterEach //동작한 후에
     public void afterEach(){ // memory clear

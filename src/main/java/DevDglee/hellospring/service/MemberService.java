@@ -5,10 +5,12 @@ package DevDglee.hellospring.service;
 
 import DevDglee.hellospring.domain.Member;
 import DevDglee.hellospring.repository.MemberRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class MemberService {
 
 //    private final MemberRepository memberRepository = new MemoryMemberRepository();

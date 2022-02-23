@@ -30,6 +30,10 @@ public class HelloController {
         return "hello"+name; //"hello name"
     }
 
+    /* 스프링 웹개발에서 이야기하는 api
+    * 정적 컨텐츠 방식(html을 웹브라우저에 넘겨주는 방식)을 제외하면
+    * api 방식으로 데이터를 바로 주는방식이 많다.
+    * */
     @GetMapping("hello-api")
     @ResponseBody
     public Hello helloAPI(@RequestParam("name")String name,@RequestParam("id")int id){
