@@ -1,9 +1,11 @@
 package DevDglee.hellospring.controller;
 
+import DevDglee.hellospring.domain.Member;
 import DevDglee.hellospring.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 //스프링 빈과 의존관계
 @Controller
@@ -52,4 +54,25 @@ public class MemberController {
     /* 참고 : 스프링은 스프링 컨테이너에 스프링 빈을 등록할때, 기본적으로 싱글톤으로 등록한다.
      (유일하게 하나만 등록해서 공유)따라서 같은 스프링 빈이면 모두 같은 인스턴스다.
      설정으로 싱글톤이 아니게 할 수 있지만, 특별한 경우를 제외하면 대부분 싱글톤을 사용한다.*/
+
+    @GetMapping("members/new")
+    public String createForm(){
+        return "members/createMemberForm";
+    }
+
+    @PostMapping("members/new")
+    public String joinMember(MemberForm form){
+        Member member = new Member();
+        member.setName(form.getName());
+        memberService.join(member);
+        System.out.println("member name ="+ member.getName());
+        return "redirect:/";
+    }
+
+    @GetMapping("members")
+    public String memberList(){
+        return "members/memberList";
+    }
+
+
 }
