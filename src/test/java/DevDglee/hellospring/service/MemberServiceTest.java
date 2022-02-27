@@ -46,13 +46,14 @@ class MemberServiceTest {
         member.setName("spring");
 
         //when
-        Long saveId = memberService.join(member);
+        Long saveId = memberService.join(member); //join 검증
+
         //then
-        //MemberService의 join을 검증
         Member findMember = memberService.findOne(saveId).get();
-        //자동 import는 junit이 되기때문에, assertj것을 import하자
+        //assert 자동 import는 junit이 되기때문에, assertj것을 import하자
         assertThat(member.getName()).isEqualTo(findMember.getName());
     }
+
     //예외사항도 잘 확인해봐야함 join 의 validateDuplicateMember 을 검증해봐야함
     @Test
     public void 중복_회원_예외(){
