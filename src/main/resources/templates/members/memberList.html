@@ -14,7 +14,7 @@
                 </tr>
             </thead>
             <tbody>
-<!-- 스프링이 get id, get name을 해서 가져와준다-->
+<!-- 스프링이 get id, get name (property 접근 방식)을 해서 가져와준다-->
             <tr th:each="member : ${members}">
                 <td th:text="${member.id}"></td>
                 <td th:text="${member.name}"></td>
