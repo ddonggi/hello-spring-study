@@ -15,14 +15,16 @@ import java.util.Optional;
 //@Service
 public class MemberService {
 
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
-    //외부에서 받아오도록 바꿔주자.
-//    private final MemberRepository memberRepository;
+    private final MemberRepository memberRepository;
 
-//    @Autowired //MemberRepository interface 이지만, 스프링은 구현체인 MemoryMemberRepository를 넣어준다.
-//    public MemberService(MemberRepository memberRepository) {
-//        this.memberRepository = memberRepository;
-//    }
+    @Autowired
+    public MemberService(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
+
+//MemberRepository interface 이지만, 스프링은 구현체인 MemoryMemberRepository를 넣어준다.
+    //private final MemberRepository memberRepository = new MemoryMemberRepository();
+    //외부에서 받아오도록 바꿔주자.
 
     /**
      * join
