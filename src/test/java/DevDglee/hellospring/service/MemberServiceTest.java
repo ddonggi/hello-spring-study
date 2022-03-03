@@ -16,8 +16,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class MemberServiceTest {
 
-    MemberService memberService = new MemberService();
-    MemoryMemberRepository memberRepository = new MemoryMemberRepository();
+//    MemberService memberService = new MemberService();
+//    MemoryMemberRepository memberRepository = new MemoryMemberRepository();
 
 //    MemberService memberService = new MemberService(memberRepository);
 
@@ -25,22 +25,26 @@ class MemberServiceTest {
     //현재 MemberService 에 MemoryMemberRepository가 인스턴스화 되어있기때문에, 여기서도 new 를 써서 다른 인스턴스를 쓸 필요는 없다.
 //    MemoryMemberRepository memberRepository = new MemoryMemberRepository();
     //같은걸로 테스트 하도록 바꾸는게 좋다. -> MemberService 에 선언한 것을 바꿔보자
-//    MemberService memberService;
-//    MemoryMemberRepository memberRepository;
 
 
-    //각 테스트를 실행하기 전에 전에->
-//    @BeforeEach
-//    public void beforeEach(){
-//        memberRepository = new MemoryMemberRepository(); //MemoryMemberRepository 인스턴스화 후 멤버변수에 선언
-//        memberService = new MemberService(memberRepository);
-//    }
+//-------------------------------------------------------------------
+
+    MemberService memberService;
+    MemoryMemberRepository memberRepository;
+
+//    각 테스트를 실행하기 전에 전에->
+    @BeforeEach
+    public void beforeEach(){
+        memberRepository = new MemoryMemberRepository(); //MemoryMemberRepository 인스턴스화 후 멤버변수에 선언
+        memberService = new MemberService(memberRepository);
+    }
     //MemberService 입장에서는 직접 new 하지 않고, memberRepository를 외부에서 넣어준다 : DI(dependency Injection)
 
     @AfterEach //동작한 후에
     public void afterEach(){ // memory clear
         memberRepository.clearStore();
     }
+
 
     @Test
     void 회원가입() {
