@@ -18,7 +18,7 @@ public class MemberController {
     // 회원 컨트롤러가 회원서비스와 회원 리포지토리를 사용할 수 있게 의존관계를 준비하자.
     // 멤버 컨트롤러가 멤버 서비스를 의존하도록 , 그리고 스프링 스럽게 작업해보자
 
-    // @Controller annotation 을 통해, 멤버컨트롤러 객체를 생성해서 스프링 컨테이너에 넣고 , 스프링이 관리한다.
+//     @Controller annotation 을 통해, 멤버컨트롤러 객체를 생성해서 스프링 컨테이너에 넣고 , 스프링이 관리한다.
     // ( 즉, 스프링 빈이 관리된다 )
 
     //멤버서비스를 가져다 쓰기 전에, new 를 이용해 생성해서 쓰지는 말자.
@@ -51,7 +51,7 @@ public class MemberController {
     //2.자바 코드로 직접 스프링 빈 등록하기
     //추후
 
-    //아무데나 @Component 를 해도 되나?? 놉-> HelloSpringApplication @SpringBootApplication 을 보면
+    // 아무데나 @Component 를 해도 되나?? 놉-> HelloSpringApplication @SpringBootApplication 을 보면
     // package 가 있는데, 그 패키지의 하위 에서만 된다. ( 설정을 해주면 되긴 함)
 
     /* 참고 : 스프링은 스프링 컨테이너에 스프링 빈을 등록할때, 기본적으로 싱글톤으로 등록한다.
