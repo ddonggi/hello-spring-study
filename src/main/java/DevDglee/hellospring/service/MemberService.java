@@ -26,6 +26,10 @@ public class MemberService {
     //private final MemberRepository memberRepository = new MemoryMemberRepository();
     //외부에서 받아오도록 바꿔주자.
 
+//    emberService의 생성자도 memberRepository를 매개변수로 받기 때문에,
+//    MemoryMemberRepository클래스에 @Repository 를 추가하여 스프링 빈으로 등록하면,
+//    MemberService가 생성될때 스프링 컨테이너에 등록된MemoryMemberRepository 스프링 빈을 가져와 쓴다.)
+
     /**
      * join
      */
