@@ -64,7 +64,7 @@ public class MemberController {
     }
 
     @PostMapping("/members/new")
-    public String joinMember(MemberForm form){
+    public String joinMember(MemberForm form){ //createMemberForm.html 의 input창으로 받아온 post요청 처리, MemberForm 객체에 담아서 전달 받는다.
         Member member = new Member();
         member.setName(form.getName());
         memberService.join(member);
