@@ -73,8 +73,8 @@ public class MemberController {
     }
 
     @GetMapping("members")
-    public String memberList(Model model){
-        List<Member> members = memberService.findMembers();
+    public String memberList(Model model){ //여기서의 Model 은 spring 이 제공하는 인터페이스,
+        List<Member> members = memberService.findMembers(); //map 의 values를 전부 가져옴
         model.addAttribute("members",members);
         return "members/memberList";
     }
