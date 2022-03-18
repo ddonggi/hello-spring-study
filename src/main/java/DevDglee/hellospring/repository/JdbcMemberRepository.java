@@ -4,6 +4,7 @@ import DevDglee.hellospring.domain.Member;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
@@ -28,6 +29,9 @@ public class JdbcMemberRepository implements MemberRepository{
 
         Connection connection = dataSource.getConnection();
 
+        PreparedStatement psmt = connection.prepareStatement();
+        pstmt.setString(1,member.getName());
+        psmt.executeUpdate();
         return null;
     }
 
