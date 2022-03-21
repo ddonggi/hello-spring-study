@@ -2,6 +2,7 @@ package DevDglee.hellospring.repository;
 
 import DevDglee.hellospring.domain.Member;
 import org.springframework.jdbc.datasource.DataSourceUtils;
+import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
 import javax.xml.transform.Result;
@@ -10,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Repository
 public class JdbcMemberRepository implements MemberRepository{
     /*
     * DB와 연동해서 이용하기위한 MemberRepository 인터페이스의 구현체 클래스
@@ -21,7 +23,7 @@ public class JdbcMemberRepository implements MemberRepository{
     public JdbcMemberRepository(DataSource dataSource) {//throws SQLException {
         this.dataSource = dataSource;
 //        dataSource.getConnection();//connection을 얻을 수 있다. 하지만 새로운 connection 이 계속 주어지기때문에,
-        //DataSourceUtils 를 통해서 connection 을 유지시켜서 써야 한다.
+        //DataSourceUtils 를 통해서 connection 을 유지시켜서 써야 한다. 닫을때도 마찬가지로 utils로 닫는다.
     }
 
     @Override
