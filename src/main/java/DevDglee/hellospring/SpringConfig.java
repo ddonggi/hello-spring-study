@@ -1,6 +1,7 @@
 package DevDglee.hellospring;
 
 import DevDglee.hellospring.repository.JdbcMemberRepository;
+import DevDglee.hellospring.repository.JdbcTemplateMemberRepository;
 import DevDglee.hellospring.repository.MemberRepository;
 import DevDglee.hellospring.repository.MemoryMemberRepository;
 import DevDglee.hellospring.service.MemberService;
@@ -32,7 +33,8 @@ public class SpringConfig {
     @Bean
     public MemberRepository memberRepository(){
 //        return new MemoryMemberRepository();
-        return new JdbcMemberRepository(dataSource);
+//        return new JdbcMemberRepository(dataSource);
+        return new JdbcTemplateMemberRepository(dataSource);
         //다른 코드를 손대지 않고 구현체만 바꿨을 뿐인데, 그대로 쓸 수 있다. 데이터를 DB에 저장하므로 서버를 다시 실행해도 데이터가 안전하게 저장된다.
         // 다형성을 활용한 것, 구현체 바꿔끼기 - 스프링은 이것을 편하게 해주게 도와주고 있다.
         // 과거에는, 의존성이 높아 하나 고치면 다른것들도 함께 고쳐야했다.
