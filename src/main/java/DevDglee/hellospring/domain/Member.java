@@ -3,8 +3,15 @@ package DevDglee.hellospring.domain;
  * Created by 이동기 on 2021-09-27
  */
 
+import javax.persistence.*;
+
+@Entity
 public class Member {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name="name")
     private String name;
 
     public Long getId() {
