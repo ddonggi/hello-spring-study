@@ -43,11 +43,11 @@ class MemberServiceIntegrationTest {
         //given
         Member member1 = new Member();
         member1.setName("spring");
-        Member member2 = new Member();
-        member2.setName("spring");
+//        Member member2 = new Member();
+//        member2.setName("spring");
 
         //when
-        memberService.join(member1);
+        Long saveId = memberService.join(member1);
         //이름이 똑같이 설정했기 떄문에 예외사항이 발생해야함 ->
         // 1. try catch로 잡을수도 있음
 /*        try {
@@ -58,9 +58,12 @@ class MemberServiceIntegrationTest {
         }*/
 
         // 2. assertThrows + 람다
-        IllegalStateException e = assertThrows(IllegalStateException.class, () -> memberService.join(member2));
-        assertThat(e.getMessage()).isEqualTo("exist member");
+//        IllegalStateException e = assertThrows(IllegalStateException.class, () -> memberService.join(member2));
+//        assertThat(e.getMessage()).isEqualTo("exist member");
 
         //then
+        Member findMember = memberService.findOne(saveId).get();
+        assertThat(member1.getName()).isEqualTo(findMember.getName());
+
     }
 }

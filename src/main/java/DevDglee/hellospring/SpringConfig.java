@@ -14,11 +14,10 @@ import javax.sql.DataSource;
 public class SpringConfig {
 
     //@PersistenceContext 원래 스펙에서는 써야 하지만, 쓰지 않아도 스프링에서 자동으로 주입해준다.
-    private final EntityManager em;
+    private EntityManager entityManager;
 
-    @Autowired
-    public SpringConfig(EntityManager em) {
-        this.em = em;
+    public SpringConfig(EntityManager entityManager) {
+        this.entityManager = entityManager;
     }
 
     @Bean
@@ -31,7 +30,7 @@ public class SpringConfig {
 //        return new MemoryMemberRepository();
 //        return new JdbcMemberRepository(dataSource);
 //        return new JdbcTemplateMemberRepository(dataSource);
-        return new JpaMemberRepository(em);
+        return new JpaMemberRepository(entityManager);
         //다른 코드를 손대지 않고 구현체만 바꿨을 뿐인데, 그대로 쓸 수 있다. 데이터를 DB에 저장하므로 서버를 다시 실행해도 데이터가 안전하게 저장된다.
         // 다형성을 활용한 것, 구현체 바꿔끼기 - 스프링은 이것을 편하게 해주게 도와주고 있다.
         // 과거에는, 의존성이 높아 하나 고치면 다른것들도 함께 고쳐야했다.
