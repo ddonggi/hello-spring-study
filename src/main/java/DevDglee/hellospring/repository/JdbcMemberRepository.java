@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@Repository
+//@Repository
 public class JdbcMemberRepository implements MemberRepository{
     /*
     * DB와 연동해서 이용하기위한 MemberRepository 인터페이스의 구현체 클래스
