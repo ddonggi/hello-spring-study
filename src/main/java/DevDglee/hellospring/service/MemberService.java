@@ -46,16 +46,16 @@ public class MemberService {
             throw new IllegalStateException("exist member");
         });
 */
-        long start = System.currentTimeMillis();
-        try {
+//        long start = System.currentTimeMillis();
+//        try {
             validateDuplicateMember(member);
             memberRepository.save(member);
             return member.getId();
-        }finally {
-            long finish = System.currentTimeMillis();
-            long timeMs = finish-start;
-            System.out.println("join = "+timeMs+"ms");
-        }
+//        }finally {
+//            long finish = System.currentTimeMillis();
+//            long timeMs = finish-start;
+//            System.out.println("join = "+timeMs+"ms");
+//        }
     }
 
     private void validateDuplicateMember(Member member) {

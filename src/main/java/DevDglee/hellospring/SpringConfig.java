@@ -1,5 +1,6 @@
 package DevDglee.hellospring;
 
+import DevDglee.hellospring.aop.TimeTraceAop;
 import DevDglee.hellospring.repository.*;
 import DevDglee.hellospring.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,10 @@ public class SpringConfig {
         return new MemberService(memberRepository);
     }
 
+/*    @Bean
+    public TimeTraceAop timeTraceAop(){
+        return new TimeTraceAop();
+    }*/
 //    @Bean
 //    public MemberRepository memberRepository(){
 //        return new MemoryMemberRepository();
